@@ -17,3 +17,11 @@ This is my personal training project notebook tracking my progress following a s
 - Next.js: https://nextjs.org/docs/getting-start
 - Shadcn: https://ui.shadcn.com/docs
 - Emoji: https://emojidb.org/hand-emojis
+
+## Part 2: Authentication & OAuth
+**Description:** In this second part, I focused on implementing user authentication with Supabase. I successfully integrated GitHub and Google OAuth login providers, built the UI using Shadcn buttons and `react-icons`, and configured the async SSR callback route to safely exchange auth codes for persistent user sessions in Next.js 16+.
+
+**Resources/Links:**
+- Supabase SSR Client: https://supabase.com/docs/guides/auth/server-side/nextjs
+- Supabase Main: https://supabase.com/
+- Google Cloud Docs: https://docs.cloud.google.com/docs
