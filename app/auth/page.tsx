@@ -18,7 +18,7 @@ const page = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full h-screen">
+    <div className="flex items-center justify-center w-full h-[80vh] relative">
       <div className="w-96 rounded-md border p-5 space-y-5 relative bg-slate-900">
         <div className="flex items-center gap-2">
           <KeyRound />

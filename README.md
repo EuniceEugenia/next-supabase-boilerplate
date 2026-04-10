@@ -38,3 +38,11 @@ This is my personal training project notebook tracking my progress following a s
 - Supabase Main: https://supabase.com/
 - Postgres Cascade Deletes: https://supabase.com/docs/guides/database/postgres/cascade-deletes
 - Markdown Editor: https://stackedit.io/app#
+
+## Part 4: Setup React Query
+**Description:** In this part, I successfully configured React Query (TanStack Query) to handle data fetching across the app. In this module, I learned to setup the `QueryProvider` and `ReactQueryDevtools`, implement `useQuery` custom hooks (like `useUser`) to fetch authenticated session and profile data seamlessly, generate strict TypeScript types from the Supabase database using the Supabase CLI, and migrate Tailwind CSS animations (`fade`) inline to fit Tailwind v4.
+
+**Resources/Links:**
+- React Query Latest: https://tanstack.com/query/latest/
+- React Query Devtools: https://tanstack.com/query/latest/docs/framework/react/devtools
+- Supabase Generating Types: https://supabase.com/docs/guides/api/rest/generating-types
