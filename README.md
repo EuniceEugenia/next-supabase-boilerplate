@@ -25,3 +25,16 @@ This is my personal training project notebook tracking my progress following a s
 - Supabase SSR Client: https://supabase.com/docs/guides/auth/server-side/nextjs
 - Supabase Main: https://supabase.com/
 - Google Cloud Docs: https://docs.cloud.google.com/docs
+
+## Part 3: Auth Trigger & Profile Table
+**Description:** In this part, I set up an automated PostgreSQL Database Trigger to automatically create a profile in the `profiles` table whenever a new user signs up. I also learned several important things about Supabase and Postgres mapping:
+- Making the `email` column `NOT NULL` since every registered user is guaranteed to have it.
+- Allowing `display_name` and `image_url` to be Nullable.
+- Exploring the use of the `COALESCE` function in SQL to intelligently map varying metadata structures between providers (like handling Google vs GitHub username keys).
+- Setting the function to execute as `SECURITY DEFINER` rather than `INVOKER` to evade Row Level Security blocks during initial profile creation.
+
+**Resources/Links:**
+- Supabase Client Guide: https://supabase.com/docs/guides/auth/server-side/nextjs
+- Supabase Main: https://supabase.com/
+- Postgres Cascade Deletes: https://supabase.com/docs/guides/database/postgres/cascade-deletes
+- Markdown Editor: https://stackedit.io/app#
