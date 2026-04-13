@@ -58,3 +58,11 @@ This is my personal training project notebook tracking my progress following a s
 
 **Resources/Links:**
 - Lucide Icons (Circle Check): https://lucide.dev/icons/circle-check
+
+## Part 7: Stripe Checkout Integration
+**Description:** In this part, I successfully integrated Stripe Checkout for subscriptions. I resolved a deprecation issue with `@stripe/stripe-js` by utilizing standard browser redirection instead of `redirectToCheckout`. Additionally, I implemented a loading state on the "Getting Started" button during the checkout session creation, set up proper redirection to a success page upon successful payment, and tested the flow using Stripe's test environment.
+
+**Resources/Links:**
+- Stripe Main: https://stripe.com/
+- Stripe Changelog (Deprecated redirectToCheckout): https://docs.stripe.com/changelog/clover/2025-09-30/remove-redirect-to-checkout
+- Stripe Testing Cards: https://docs.stripe.com/testing#cards

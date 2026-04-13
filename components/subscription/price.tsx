@@ -2,6 +2,7 @@ import { CircleCheck } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import Checkout from "./Checkout";
 export default function Price() {
   const prices = [
     {
@@ -15,6 +16,7 @@ export default function Price() {
         "Enhanced collaboration",
       ],
       amount: 10,
+      priceId: "price_1TLp5gRrSXWzaZBUVte2j329"
     },
     {
       title: "Pro",
@@ -28,6 +30,7 @@ export default function Price() {
         "Enhanced collaboration",
       ],
       amount: 20,
+      priceId: "price_1TLp6FRrSXWzaZBUHawURYCa"
     },
     {
       title: "Enterprise",
@@ -41,6 +44,7 @@ export default function Price() {
         "Enhanced collaboration",
       ],
       amount: 100,
+      priceId: "price_1TLp6tRrSXWzaZBUEi99QrmD"
     },
   ];
 
@@ -69,7 +73,7 @@ export default function Price() {
                   );
                 })}
               </div>
-              <Button className="w-full">Getting Started</Button>
+              <Checkout priceId={price.priceId} />
             </div>
           );
         })}
