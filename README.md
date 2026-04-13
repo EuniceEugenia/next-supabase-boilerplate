@@ -46,3 +46,9 @@ This is my personal training project notebook tracking my progress following a s
 - React Query Latest: https://tanstack.com/query/latest/
 - React Query Devtools: https://tanstack.com/query/latest/docs/framework/react/devtools
 - Supabase Generating Types: https://supabase.com/docs/guides/api/rest/generating-types
+
+## Part 5: Logout & Page Protection
+**Description:** In this part, I implemented secure logout routing and configured strict page protection using Next.js Middleware. I learned how to cleanly handle session termination by clearing React Query cache, signing out of Supabase, and redirecting gracefully. Moreover, I set up a robust middleware to intercept unauthenticated attempts to access protected routes, forwarding them to the login page along with a redirect query param so they can bounce back upon successful sign-in.
+
+**Resources/Links:**
+- Creating a Supabase Client: https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=nextjs
