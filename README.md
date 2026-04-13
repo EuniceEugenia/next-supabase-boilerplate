@@ -52,3 +52,9 @@ This is my personal training project notebook tracking my progress following a s
 
 **Resources/Links:**
 - Creating a Supabase Client: https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=nextjs
+
+## Part 6: Setup Stripe UI
+**Description:** In this part, I set up the initial user interface for managing Stripe subscriptions. I successfully built out the pricing component using Shadcn UI's grid and styling utilities, created the subscription routing, and added check icons using `lucide-react` to display the features of each tier.
+
+**Resources/Links:**
+- Lucide Icons (Circle Check): https://lucide.dev/icons/circle-check
