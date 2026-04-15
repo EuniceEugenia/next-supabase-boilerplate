@@ -1,9 +1,14 @@
+"use client";
+
 import { CircleCheck } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import Checkout from "./Checkout";
+import useUser from "@/app/hook/useUser";
+
 export default function Price() {
+  const { data: user, isLoading } = useUser();
   const prices = [
     {
       title: "Hobby",
@@ -48,6 +53,13 @@ export default function Price() {
     },
   ];
 
+  if(isLoading){
+    return <></>
+  }
+if(user?.subscription?.customer_id){
+  return <></>
+}
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -79,5 +91,4 @@ export default function Price() {
         })}
       </div>
     </div>
-  );
-}
+  )};

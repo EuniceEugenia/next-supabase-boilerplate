@@ -28,25 +28,28 @@ export async function POST(req: Request) {
 
         const result = event.data.object as Stripe.Invoice;
 
-        const supabase = await supabaseAdmin();
-
         const end_at = new Date(
           result.lines.data[0].period.end * 1000,
         ).toISOString();
 
-        const customer_id =
+        const customer_id = (
           typeof result.customer === "string"
             ? result.customer
-            : result.customer?.id;
+            : result.customer?.id
+        ) as string;
 
-        const subscription_id =
-          result.parent?.subscription_details?.subscription;
+        const subscription_id = (
+          (result as any).subscription ||  
+          result.lines.data[0].subscription
+        ) as string;
 
         const email = result.customer_email as string;
 
         console.log("EMAIL:", email);
         console.log("CUSTOMER:", customer_id);
         console.log("SUB:", subscription_id);
+
+        const supabase = await supabaseAdmin();
 
         const { data: profile, error: profileError } = await supabase
           .from("profiles")
@@ -59,17 +62,12 @@ export async function POST(req: Request) {
           return Response.json({ error: "Profile not found" }, { status: 404 });
         }
 
-        const { data, error } = await supabase
-          .from("subscription")
-          .update({
-            end_at,
-            customer_id,
-            subscription_id,
-          })
-          .eq("email", email);
-
-        console.log("UPDATE RESULT:", data);
-        console.log("UPDATE ERROR:", error);
+        const { data, error } = await onPaymentSucceeded(
+          end_at,
+          customer_id,
+          subscription_id,
+          email,
+        );
 
         if (error) {
           return Response.json({ error: error.message });
@@ -78,6 +76,16 @@ export async function POST(req: Request) {
         break;
       }
 
+      case "customer.subscription.deleted": {
+        const deleteSubscription = event.data.object as Stripe.Subscription;
+
+        console.log("🔥 SUBSCRIPTION DELETED");
+        const { error: cancelError } = await onSubCancel(deleteSubscription.id)
+        if (cancelError) {
+          return Response.json({ error: cancelError.message });
+        }
+        break;
+      }
       default:
         console.log(`Unhandled event type ${event.type}`);
     }
@@ -87,4 +95,43 @@ export async function POST(req: Request) {
     console.error("❌ WEBHOOK ERROR:", e);
     return Response.json({ error: "Webhook error" }, { status: 500 });
   }
+}
+
+async function onPaymentSucceeded(
+  end_at: string,
+  customer_id: string,
+  subscription_id: string,
+  email: string,
+) {
+  const supabase = await supabaseAdmin();
+  const { data, error } = await supabase
+    .from("subscription")
+    .update({
+      end_at,
+      customer_id,
+      subscription_id,
+    })
+    .eq("email", email);
+
+  console.log("UPDATE RESULT:", data);
+  console.log("UPDATE ERROR:", error);
+
+  return { data, error };
+}
+
+
+
+async function onSubCancel(
+  subscription_id: string,
+) {
+  const supabase = await supabaseAdmin();
+  const { data, error } = await supabase
+    .from("subscription")
+    .update({
+      customer_id: null,
+      subscription_id: null,
+    })
+    .eq("subscription_id", subscription_id);
+
+  return { data, error };
 }

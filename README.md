@@ -2,6 +2,8 @@
 
 This is my personal training project notebook tracking my progress following a step-by-step tutorial series by the "Daily Web Coding" YouTube channel.
 
+**YouTube Playlist:** [Daily Web Coding Playlist](https://youtube.com/playlist?list=PLYHXTr4kGJjEPOZ_RqZG2uIguJCdA5ezT&si=dPPLDETTL-B7cf3J)
+
 ## Part 1: Initial Setup
 **Description:** In this first part, I set up my initial boilerplate using Next.js, Supabase, Shadcn UI, and React Query. I am learning to integrate these specific technologies because I plan to use them as my go-to modern stack for starting new projects in the future.
 
@@ -74,3 +76,6 @@ This is my personal training project notebook tracking my progress following a s
 - Supabase Admin API: https://supabase.com/docs/reference/javascript/admin-api
 - Supabase Generating Types: https://supabase.com/docs/guides/api/rest/generating-types
 - Stripe Events: https://docs.stripe.com/api/events
+
+## Part 9: TypeScript Build Fixes & Branch Synchronization
+**Description:** In this part, I successfully fixed TypeScript build errors related to the Stripe webhook integration and ensuring type safety for `Stripe.Invoice` and `Stripe.Subscription`. After verifying that `npm run build` succeeds locally, I finalized the documentation, committed the work, and merged the feature branch into the main thread.
