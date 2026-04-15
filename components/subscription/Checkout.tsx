@@ -23,7 +23,7 @@ const [loading, setLoading] = useState(false);
         await checkout(
           user.email, 
           priceId, 
-          location.origin + "/success"
+          location.origin + location.pathname
         ),
       );
       if (data.url) {

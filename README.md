@@ -66,3 +66,11 @@ This is my personal training project notebook tracking my progress following a s
 - Stripe Main: https://stripe.com/
 - Stripe Changelog (Deprecated redirectToCheckout): https://docs.stripe.com/changelog/clover/2025-09-30/remove-redirect-to-checkout
 - Stripe Testing Cards: https://docs.stripe.com/testing#cards
+
+## Part 8: Webhook & Protect Data
+**Description:** In this part, I implemented the Stripe Webhook to synchronize subscription states with the Supabase database. I utilized the Supabase Admin API to securely bypass RLS and update users' subscription records directly from the server based on Stripe webhook events. I also protected route data on the frontend by checking the user's active subscription status before rendering the content.
+
+**Resources/Links:**
+- Supabase Admin API: https://supabase.com/docs/reference/javascript/admin-api
+- Supabase Generating Types: https://supabase.com/docs/guides/api/rest/generating-types
+- Stripe Events: https://docs.stripe.com/api/events
